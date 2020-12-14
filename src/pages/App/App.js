@@ -2,6 +2,7 @@ import logo from 'assets/images/logo.svg';
 import Button from 'components/Button';
 import './App.css';
 import { MAX_AGE } from 'constants/index';
+import { API_URL } from 'config';
 
 function App() {
   return (
@@ -17,9 +18,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-        Learn React 
+          Learn React
         </a>
-        Max Age is {MAX_AGE}  
+        Max Age is {MAX_AGE}. API URL is {API_URL}
         <Button></Button>
       </header>
     </div>

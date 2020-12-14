@@ -45,6 +45,7 @@ Follow the instructions at https://create-react-app.dev/docs/importing-a-compone
         }
         
 7. Run `git push heroku` to deploy changes to Heroku whenever required.
+8. Run `heroku logs --tail` to debug any issues.
 
 ### References
 Heroku Deployment - https://devcenter.heroku.com/categories/deployment
