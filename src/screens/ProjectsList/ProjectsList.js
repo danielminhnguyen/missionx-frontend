@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Projects.scss";
-import LibaryIcon from "../../components/LibraryIcon/LibaryIcon";
-import { Link, Redirect, useLocation, useParams } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-import history from "history.js";
 import {
   Box,
   Button,
   ButtonGroup,
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
   Checkbox,
   FormControlLabel,
   Grid,
@@ -21,7 +15,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
 import { listProjects } from "actions/projectActions";
-import { check } from "prettier";
 
 // TODO: reduce checkbox border
 

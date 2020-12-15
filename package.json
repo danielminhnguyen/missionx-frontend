@@ -3,6 +3,9 @@
   "name": "missionx",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.x"
+  },
   "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "@material-ui/core": "^4.11.2",

@@ -5,7 +5,6 @@ import ClassNames from "classnames";
 
 // graphics
 import StudentProfile from "assets/images/student-profile.png";
-
 import { ReactComponent as Profile } from "assets/images/profile.svg";
 import { ReactComponent as Settings } from "assets/images/settings.svg";
 import { ReactComponent as Logout } from "assets/images/logout.svg";
@@ -14,36 +13,16 @@ import { ReactComponent as Logout } from "assets/images/logout.svg";
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
-// TODO: to find and update first item ID to be focus on
-
 export default function DashboardSide(props) {
   const classes = useStyles();
 
   const { tabClick, routes, firstTab } = props;
 
-  // fetching user dashboard and layout
-  // const userSignin = useSelector((state) => state.userSignin);
-  // const { userInfo } = userSignin;
-  // const location = useLocation();
-  // const screen = location.pathname.split("/")[1];
-
   const [drawerOpen, setDrawerOpen] = useState(true);
-
-  // console.log(!userInfo);
-  // if (!userInfo) {
-  //   return <Redirect to="/" />;
-  // }
-
-  // let { role } = userInfo.Role;
-  // role = "teacher";
-
-  // const routes = Routes.filter(({ user, layout }) => user === role && layout === screen);
 
   const handleDrawerControl = () => {
     setDrawerOpen(() => !drawerOpen);
   };
-
-  // const [activeTab, setActiveTab] = useState(routes[0].id);
 
   return (
     <>
