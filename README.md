@@ -35,6 +35,10 @@ Follow the instructions at https://create-react-app.dev/docs/importing-a-compone
 
 1. Create an account with https://www.heroku.com/
 2. Download and install the Heroku CLI https://devcenter.heroku.com/articles/heroku-cli#download-and-install
+   
+        npm install -g heroku
+        heroku --version
+
 3. Run `heroku login` to authenticate the CLI tool
 4. Go to the React project folder and type `heroku create missionx-demo-app-name --buildpack mars/create-react-app`
 5. Check to see if the Heroku remote is added `git remote -v`. If not, run `heroku git:remote -a missionx-demo-app-name` to add a remote for heroku.
@@ -44,7 +48,7 @@ Follow the instructions at https://create-react-app.dev/docs/importing-a-compone
           "node": "12.x"
         }
         
-7. Run `git push heroku` to deploy changes to Heroku whenever required.
+7. Commit the changes and run `git push heroku` to deploy changes to Heroku whenever required.
 8. Run `heroku logs --tail` to debug any issues.
 
 ### References

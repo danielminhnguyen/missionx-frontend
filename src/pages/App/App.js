@@ -1,28 +1,26 @@
-import logo from 'assets/images/logo.svg';
-import Button from 'components/Button';
-import './App.css';
+import FileUpload from 'components/FileUpload';
+
 import { MAX_AGE } from 'constants/index';
-import { API_URL } from 'config';
+import logo from 'assets/images/logo.svg';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        Max Age is {MAX_AGE}. API URL is {API_URL}
-        <Button></Button>
-      </header>
+    <div>
+      <img src={logo} alt="React Logo" />
+      <p>
+        Edit <code>src/App.js</code> and save to reload.
+      </p>
+      <a
+        className="App-link"
+        href="https://reactjs.org"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Learn React
+      </a>
+      Max Age is {MAX_AGE}.<FileUpload></FileUpload>
+      <hr></hr>
     </div>
   );
 }
