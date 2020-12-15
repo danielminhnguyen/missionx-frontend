@@ -1,0 +1,68 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #43c0f6;
+  height: 64px;
+  width: 100vw !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0px 3px 10px #888888;
+
+  * {
+    color: white;
+  }
+  .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    img {
+      align-self: center;
+    }
+  }
+  nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    ul {
+      position: relative;
+      display: flex;
+      list-style: none;
+      justify-content: center;
+      align-items: center;
+      a {
+        margin: 0 1rem 0.5rem 0;
+        text-decoration: none;
+        font-weight: 900;
+      }
+    }
+  }
+  .login-language {
+    display: flex;
+    flex-direction: column;
+    .login-register,
+    .language {
+      height: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      * {
+        margin: 0 3px;
+      }
+      img {
+        width: 20px;
+        height: 20px;
+      }
+      .register,
+      .login {
+        cursor: pointer;
+      }
+    }
+    .language > span {
+      font-weight: 400;
+    }
+  }
+}

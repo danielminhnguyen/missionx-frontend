@@ -1,0 +1,25 @@
+.student-objective-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  .learning-block-wrapper {
+    display: flex;
+    flex-direction: row;
+    // justify-content: flex-end;
+    // align-items: flex-start;
+    .block-image {
+      display: flex;
+      flex-direction: row;
+      .image-sub {
+        display: flex;
+        flex-direction: column;
+      }
+      img {
+        margin: 0 10px;
+        align-self: flex-start;
+      }
+    }
+  }
+}
