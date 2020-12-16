@@ -10,21 +10,23 @@ import Error from "components/Error";
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    width: 150,
-    height: 150,
-    margin: theme.spacing(2),
-    flex: "0 0 100%",
+    width: 200,
+    height: 200,
+    margin: theme.spacing(3),
+    position: "relative",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "center",
+    justifyItems: "center",
     alignContent: "center",
-    borderRadius: "15%",
+    borderRadius: "10%",
+    padding: theme.spacing(2),
   },
   cardWrapper: {
     width: "100%",
+    paddingLeft: theme.spacing(4),
     height: "100%",
     display: "flex",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
     flexDirection: "row",
     flexWrap: "wrap",
@@ -34,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
   image: {
     height: 120,
     width: 120,
+  },
+  name: {
+    textTransform: "uppercase",
   },
 }));
 
@@ -62,14 +67,16 @@ export default function StudentProfile(image) {
       ) : error ? (
         <Error />
       ) : (
-        <div className="cardWrapper">
+        <div className={classes.cardWrapper}>
           {studentsInfo
             ? studentsInfo.map((student) => (
-                <Paper elevatio={4} key={student.UserID} classes={{ rounded: classes.card }}>
-                  <img className={classes.image} src={student.ProfilePic} alt="" />
-                  <Typography variant="h3">
-                    {student.FirstName} {student.LastName}
-                  </Typography>
+                <Paper elevatio={4} key={student.UserID} classes={{ root: classes.card }}>
+                  <div className="column">
+                    <img className={classes.image} src={student.ProfilePic} alt="" />
+                    <Typography className={classes.name} variant="h6">
+                      {student.FirstName} {student.LastName}
+                    </Typography>
+                  </div>
                 </Paper>
               ))
             : null}

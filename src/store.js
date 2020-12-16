@@ -1,7 +1,11 @@
 import { createStore, compose, applyMiddleware, combineReducers } from "redux";
 import thunk from "redux-thunk";
 import { userRegisterReducer, userSigninReducer } from "reducers/userReducers";
-import { teacherHelpReqReducer, teacherReqProfileReducer } from "reducers/teacherReducers";
+import {
+  teacherHelpReqReducer,
+  teacherProgressReqReducer,
+  teacherReqProfileReducer,
+} from "reducers/teacherReducers";
 import { projectBuilderReducers, projectListReducers } from "reducers/projectReducers";
 
 const initialState = {
@@ -20,6 +24,7 @@ const reducer = combineReducers({
   teacherHelpReq: teacherHelpReqReducer,
   projectList: projectListReducers,
   projectBuilder: projectBuilderReducers,
+  teacherProgress: teacherProgressReqReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

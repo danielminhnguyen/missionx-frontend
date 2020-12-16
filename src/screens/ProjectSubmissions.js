@@ -1,5 +1,5 @@
 import { Card, Checkbox, makeStyles, Typography } from "@material-ui/core";
-import { teacherStudentsRequest } from "actions/teacherActions";
+import { teacherRequestStudent } from "actions/teacherActions";
 import Error from "components/Error";
 import Loading from "components/Loading";
 import React, { useEffect } from "react";
@@ -8,15 +8,20 @@ import { Redirect } from "react-router-dom";
 import { timeFormat, dateFormat } from "utils";
 
 const useStyles = makeStyles((theme) => ({
-  title: {},
+  title: { marginBottom: theme.spacing(3) },
   card: {
+    minHeight: 60,
     width: "60vw",
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "1rem",
-    padding: theme.spacing(1),
+    paddingRight: theme.spacing(5),
+    paddingLeft: theme.spacing(5),
+    marginBottom: theme.spacing(1),
+    marginTop: theme.spacing(1),
+    marginLeft: theme.spacing(3),
   },
   grow: {
     flexGrow: 1,
@@ -39,7 +44,7 @@ export default function ProjectSubmission() {
 
   useEffect(() => {
     if (userInfo) {
-      dispatch(teacherStudentsRequest(userInfo.UserID));
+      dispatch(teacherRequestStudent(userInfo.UserID));
     }
   }, [dispatch, userInfo]);
 
@@ -49,10 +54,10 @@ export default function ProjectSubmission() {
 
   return (
     <>
-      {" "}
-      d
       <div>
-        <Typography className={classes.title}>HELP REQUEST</Typography>
+        <Typography variant="h3" align="left" className={classes.title}>
+          PROJECT SUMBMISSION
+        </Typography>
       </div>
       {loading ? (
         <Loading open={loading} />

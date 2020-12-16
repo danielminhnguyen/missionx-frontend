@@ -7,7 +7,8 @@ export default makeStyles((theme) => ({
     // minWidth: "10px",
   },
   dialogContainer: {
-    // minWidth: "70vw",
+    overflow: "hidden",
+
     padding: theme.spacing(10),
   },
   inputContainer: {

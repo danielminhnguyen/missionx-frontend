@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import ClassNames from "classnames";
 
 // graphics
-import StudentProfile from "assets/images/student-profile.png";
 import { ReactComponent as Profile } from "assets/images/profile.svg";
 import { ReactComponent as Settings } from "assets/images/settings.svg";
 import { ReactComponent as Logout } from "assets/images/logout.svg";
@@ -12,10 +11,17 @@ import { ReactComponent as Logout } from "assets/images/logout.svg";
 // material ui
 import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "@material-ui/core";
 import useStyles from "./styles";
+import { signout } from "actions/userActions";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function DashboardSide(props) {
   const classes = useStyles();
-
+  const userSignin = useSelector((state) => state.userSignin);
+  const { userInfo } = userSignin;
+  const dispatch = useDispatch();
+  const handleSignOut = () => {
+    dispatch(signout());
+  };
   const { tabClick, routes, firstTab } = props;
 
   const [drawerOpen, setDrawerOpen] = useState(true);
@@ -26,6 +32,7 @@ export default function DashboardSide(props) {
 
   return (
     <>
+      <div className={drawerOpen ? classes.fakeSideBarOpen : classes.fakeSideBarClose}></div>
       <Drawer
         variant="permanent"
         className={
@@ -44,7 +51,7 @@ export default function DashboardSide(props) {
       >
         <div className={classes.fakeToolBar} />
         <div>
-          <img className={classes.profileImage} src={StudentProfile} alt="" />
+          <img className={classes.profileImage} src={userInfo.ProfilePic} alt="" />
         </div>
         <div className={classes.navigation}>
           <List>
@@ -53,10 +60,10 @@ export default function DashboardSide(props) {
                 key={item.id}
                 autoFocus={item.id === firstTab ? true : false}
                 button
-                classes={{ button: classes.sideButton }}
+                classes={{ button: drawerOpen ? classes.sideButtonOpen : classes.sideButtonClose }}
                 onClick={() => tabClick(item.id)}
               >
-                <ListItemIcon classes={{ root: drawerOpen ? classes.icon : classes.iconClose }}>
+                <ListItemIcon classes={{ root: drawerOpen ? classes.iconOpen : classes.iconClose }}>
                   {item.icon}
                 </ListItemIcon>
                 <ListItemText
@@ -111,7 +118,7 @@ export default function DashboardSide(props) {
               <Settings />
               <Typography className={classes.bottomLabel}>Settings</Typography>
             </div>
-            <div className="column">
+            <div className="column" onClick={handleSignOut}>
               <Logout />
               <Typography className={classes.bottomLabel}>Log out</Typography>
             </div>

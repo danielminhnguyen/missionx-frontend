@@ -17,15 +17,22 @@ const useStyles = makeStyles((theme) => ({
     width: "100vw",
   },
   contentWrapper: {
-    right: 0,
-    left: "auto",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+    alignItems: "center",
     height: "80vh",
-    width: "70vw",
-    marginTop: 30,
-    marginLeft: 30,
-    marginBottom: 30,
+    width: "100%",
+    margin: theme.spacing(6),
+    padding: theme.spacing(6),
     backgroundColor: theme.palette.background.light,
     borderRadius: "40px",
+  },
+  content: {
+    width: "100%",
+    // height: "75vh",
+    overflowX: "hidden",
+    margin: theme.spacing(0),
   },
   middle: {
     position: "relative",
@@ -82,10 +89,12 @@ export default function DashBoard(props) {
     <div className={classes.dashboard}>
       <DashboardTop />
       <div className={classes.fakeToolbar}></div>
-      <div className="row">
+      <div className="row-start">
         <DashboardSide tabClick={handleTabClick} routes={routes} firstTab={firstTab} />
         <div className={classes.contentWrapper}>
-          {routes ? routes.find(({ id }) => id === activeTab).component : null}
+          <div className={classes.content}>
+            {routes ? routes.find(({ id }) => id === activeTab).component : null}
+          </div>
         </div>
       </div>
       <div className={classes.fakeToolbar}></div>

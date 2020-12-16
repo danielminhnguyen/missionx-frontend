@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 // material ui
-import { Popover, Typography, AppBar, Toolbar } from "@material-ui/core";
+import { Popover, Typography, Container, AppBar, Toolbar } from "@material-ui/core";
 import useStyles from "./styles";
 
 // pictures
@@ -84,17 +84,16 @@ export default function NavigationBar(props) {
           <img src={maoriflag} alt="" />
         </div>
         {userInfo ? (
-          <div
+          <Container
             aria-owns={open ? "mouse-over-popover" : undefined}
             aria-haspopup="true"
             onMouseEnter={handlePopoverOpen}
             onMouseLeave={handlePopoverClose}
           >
-            <div className="row">
-              <img className={classes.profilePhoto} src={userInfo.ProfilePic} alt="" />
-              <Typography variant="h5">{`${userInfo.FirstName} ${userInfo.LastName}`}</Typography>
-            </div>
+            <img className={classes.profilePhoto} src={userInfo.ProfilePic} alt="" />
+            <Typography variant="h2">{`${userInfo.FirstName} ${userInfo.LastName}`}</Typography>
             <Popover
+              classes={{ paper: classes.paperPopOver }}
               id="mouse-over-popover"
               open={open}
               anchorEl={anchor}
@@ -115,7 +114,7 @@ export default function NavigationBar(props) {
                 Log out
               </Typography>
             </Popover>
-          </div>
+          </Container>
         ) : (
           <div className="row">
             <Typography variant="h5" onClick={() => modalClick("Sign Up")}>

@@ -23,6 +23,7 @@ const overrides = {
       fontSize: "1.5rem",
     },
     h5: {
+      fontWeight: 500,
       fontSize: "1.285rem",
     },
     h6: {

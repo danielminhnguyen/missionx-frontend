@@ -35,7 +35,7 @@ export default function ModalLoginSignup(props) {
   });
 
   const handleMessageClose = (event, reason) => {
-    if (reason === "clikaway") {
+    if (reason === "clickaway") {
       return;
     }
     setMessage({ ...message, open: false });
@@ -109,8 +109,13 @@ export default function ModalLoginSignup(props) {
           {message.content}
         </Alert>
       </Snackbar>
-      <Dialog open={show} onClose={close}>
-        <Grid className={classes.dialogContainer} container spacing={4}>
+      <Dialog
+        classes={{ paper: classes.dialogContainer }}
+        open={show}
+        onClose={close}
+        disableScrollLock={false}
+      >
+        <Grid container spacing={4}>
           <Grid item xs={6} className="column-start">
             <div className="login-signup-switch">
               <img className={classes.image} src={student} alt="" />

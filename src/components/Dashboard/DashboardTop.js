@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 
 //material ui
-import { AppBar, Button, makeStyles, Typography } from "@material-ui/core";
+import { AppBar, Button, makeStyles } from "@material-ui/core";
 
 // graphics
 import FlagNZ from "assets/images/nz-flag.png";
@@ -11,8 +11,7 @@ import FlagMaori from "assets/images/maori-flag.png";
 import logo from "assets/images/logo-dark.png";
 
 //components
-import ProgressBar from "../ProgressBar/ProgressBar";
-import { useSelector } from "react-redux";
+import { ProgressBarTop } from "components/ProgressBar/ProgressBar";
 
 const useStyles = makeStyles((theme) => ({
   appbar: {
@@ -53,30 +52,32 @@ DashboardTop.propTypes = {
 };
 
 export default function DashboardTop(props) {
+  const location = useLocation();
+  const sideLayout = location.pathname.split("/")[1];
   const classes = useStyles();
-  const projectBuilder = useSelector((state) => state.projectBuilder);
-  // let projectsInfo;
-  const projectsInfo = projectBuilder.projectsInfo;
-  if (projectBuilder) {
-  }
+
   return (
     <AppBar color="default" position="fixed" className={classes.appbar}>
       <Link to="/">
         <img className={classes.logo} src={logo} alt=""></img>
       </Link>
       <div className={`row ${classes.grow}`}>
-        <div>
-          <p gutterBottom={true} variant="h4">
-            PROJECT
-          </p>
-          <p>Introduction</p>
-        </div>
-        <div>
-          <span>1</span>
-          <div>
-            <ProgressBar repeat={12} />
-          </div>
-        </div>
+        {sideLayout === "projects" ? (
+          <>
+            <div>
+              <p gutterBottom={true} variant="h4">
+                PROJECT
+              </p>
+              <p>Introduction</p>
+            </div>
+            <div>
+              <span>1</span>
+              <div>
+                <ProgressBarTop repeat={12} />
+              </div>
+            </div>
+          </>
+        ) : null}
         <div className={classes.grow}></div>
         <div className={classes.buttonsWrapper}>
           <Button variant="contained" className={classes.button}>

@@ -217,9 +217,11 @@ export default function Projects(props) {
                 : null}
             </Grid>
             {role === "teacher" ? (
-              <div>
+              <div className="row-end">
                 <Button variant="contained">Back To Top</Button>
-                <Button variant="contained">Back To Dashboard</Button>
+                <Button variant="contained">
+                  <Link to="/dashboard">Back To Dashboard</Link>
+                </Button>
               </div>
             ) : (
               <div>

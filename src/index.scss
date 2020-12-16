@@ -8,10 +8,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
-
 $primary-color: #43c0f6;
 $secondary-color: #d8f1fc;
 $accent-color: #f91c85;
@@ -140,18 +136,18 @@ input {
   text-transform: uppercase;
 }
 
-#style::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #f5fbfe;
   border-radius: 20px;
 }
 
-#style::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 15px;
   background-color: #f5fbfe;
 }
 
-#style::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background-color: #43c0f6;
   border-radius: 20px;
   background-clip: padding-box;
@@ -168,6 +164,13 @@ input {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  align-items: center;
+}
+
+.row-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 }
 

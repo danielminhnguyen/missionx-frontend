@@ -8,6 +8,14 @@ export default makeStyles((theme) => ({
     marginTop: theme.spacing(2),
     marginBottom: theme.spacing(2),
   },
+  fakeSideBarOpen: {
+    width: 350,
+    height: 300,
+  },
+  fakeSideBarClose: {
+    width: 100,
+    height: 500,
+  },
   navigation: {
     display: "flex",
     flexDirection: "column",
@@ -45,7 +53,7 @@ export default makeStyles((theme) => ({
       width: theme.spacing(14) + 1,
     },
   },
-  sideButton: {
+  sideButtonOpen: {
     transition: theme.transitions.create("background-color", {
       duration: theme.transitions.duration.shortest,
     }),
@@ -53,14 +61,31 @@ export default makeStyles((theme) => ({
       textDecoration: "none",
       backgroundColor: theme.palette.background.main,
       color: theme.palette.text.primary,
+      "& svg": {
+        filter: "invert(60%)",
+      },
     },
   },
-  icon: {
+  sideButtonClose: {
+    height: 120,
+    "&:hover ,&:focus": {
+      textDecoration: "none",
+      backgroundColor: theme.palette.background.main,
+      color: theme.palette.text.primary,
+      "& svg": {
+        filter: "invert(60%)",
+      },
+    },
+  },
+  iconOpen: {
     minWidth: 35,
   },
   iconClose: {
-    transform: "scale(2) translateX(20px)",
-    marginBottom: theme.spacing(3),
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    "& svg": { width: 70, height: 70 },
   },
   label: {
     fontWeight: 700,

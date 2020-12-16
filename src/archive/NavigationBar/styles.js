@@ -16,6 +16,7 @@ export default makeStyles((theme) => ({
   profilePhoto: {
     height: 20,
     width: 20,
+    zIndex: theme.zIndex.appBar + 1,
   },
   toolBar: {
     flexGrow: 1,
@@ -31,5 +32,8 @@ export default makeStyles((theme) => ({
       marginLeft: theme.spacing(1),
       cursor: "pointer",
     },
+  },
+  paperPopOver: {
+    overflow: "hidden",
   },
 }));

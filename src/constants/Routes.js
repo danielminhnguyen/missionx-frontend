@@ -25,6 +25,8 @@ import PreviewProject from "screens/PreviewProject";
 import OfflineActivities from "screens/OfflineActivities";
 import CheckSubmission from "screens/CheckSubmission";
 import QuizResults from "screens/QuizResults";
+import { Redirect } from "react-router-dom";
+import ProgressTracker from "screens/ProgressTracker";
 
 export const Routes = [
   // teacher dashboard
@@ -34,7 +36,7 @@ export const Routes = [
     layout: "dashboard",
     icon: <ProgressTrackerIcon />,
     label: "progress tracker",
-    component: "",
+    component: <ProgressTracker />,
   },
   {
     id: 2,
@@ -67,7 +69,7 @@ export const Routes = [
     layout: "dashboard",
     icon: <ProgressLibraryIcon />,
     label: "project library",
-    component: "",
+    component: <Redirect to="/projects" />,
   },
   // teacher project builder
   {
@@ -108,7 +110,7 @@ export const Routes = [
     layout: "projects",
     icon: <CheckSubmissionIcon />,
     label: "Check Submissions",
-    component: <CheckSubmission />,
+    component: <ProjectSubmission />,
   },
   {
     id: 11,
@@ -156,7 +158,7 @@ export const Routes = [
     user: "student",
     layout: "projects",
     icon: <PreviewProjectIcon />,
-    label: "preview project",
+    label: "Make project",
     component: <PreviewProject />,
   },
   {
@@ -164,7 +166,7 @@ export const Routes = [
     user: "student",
     layout: "projects",
     icon: <CheckSubmissionIcon />,
-    label: "Check Submissions",
+    label: "Submit Project",
     component: <CheckSubmission />,
   },
   {
@@ -172,7 +174,7 @@ export const Routes = [
     user: "student",
     layout: "projects",
     icon: <OfflineActivitiesIcon />,
-    label: "offline activities",
+    label: "Bonus Challenge",
     component: <OfflineActivities />,
   },
   {
@@ -180,7 +182,7 @@ export const Routes = [
     user: "student",
     layout: "projects",
     icon: <QuizResultsIcon />,
-    label: "view quiz results",
+    label: "Take The Quiz",
     component: <QuizResults />,
   },
 ];
