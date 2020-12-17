@@ -17,130 +17,117 @@ import DigitalOverlay2 from "assets/images/home-sectiontwo-icon-two-overlay.png"
 import DigitalOverlay3 from "assets/images/home-sectiontwo-icon-three-overlay.png";
 import DigitalOverlay4 from "assets/images/home-sectiontwo-icon-four-overlay.png";
 
-import TeacherNav1 from "assets/images/teacher-nav-progress.png";
-import TeacherNav2 from "assets/images/teacher-nav-studentprofile.png";
-import TeacherNav3 from "assets/images/teacher-nav-help.png";
-import TeacherNav4 from "assets/images/teacher-nav-submission.png";
-import TeacherNav5 from "assets/images/teacher-nav-library.png";
+// import TeacherNav1 from "assets/images/teacher-nav-progress.png";
+// import TeacherNav2 from "assets/images/teacher-nav-studentprofile.png";
+// import TeacherNav3 from "assets/images/teacher-nav-help.png";
+// import TeacherNav4 from "assets/images/teacher-nav-submission.png";
+// import TeacherNav5 from "assets/images/teacher-nav-library.png";
 
-import TeacherSetting1 from "assets/images/userIcon.png";
-import TeacherSetting2 from "assets/images/settingIcon.png";
-import TeacherSetting3 from "assets/images/logoutIcon.png";
+// import TeacherSetting1 from "assets/images/userIcon.png";
+// import TeacherSetting2 from "assets/images/settingIcon.png";
+// import TeacherSetting3 from "assets/images/logoutIcon.png";
 
-import Project1 from "assets/images/student-project-1.png";
-import Project2 from "assets/images/student-project-2.png";
-import Project3 from "assets/images/student-project-3.png";
-import Project4 from "assets/images/student-project-4.png";
-import Project5 from "assets/images/student-project-5.png";
-import Project6 from "assets/images/student-project-6.png";
-import Project7 from "assets/images/student-project-7.png";
-
-import Submission1 from "assets/images/aiden-profile.png";
-import Submission2 from "assets/images/rawiri_profile.png";
-import Submission3 from "assets/images/neveah-profile.png";
-import StudentProject1 from "assets/images/aiden-project.png";
-
-export const SubmissionData = [
-  {
-    id: 1,
-    name: "Aiden",
-    gender: "M",
-    timestamp: 1588027380000,
-    profileURL: Submission1,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 2,
-    name: "RAWIRI",
-    gender: "M",
-    timestamp: 1588026420000,
-    profileURL: Submission2,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 3,
-    name: "NEVEAH",
-    gender: "F",
-    timestamp: 1588024680000,
-    profileURL: Submission3,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 4,
-    name: "Aiden",
-    gender: "M",
-    timestamp: 1588027380000,
-    profileURL: Submission1,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 5,
-    name: "RAWIRI",
-    gender: "M",
-    timestamp: 1588026420000,
-    profileURL: Submission2,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 6,
-    name: "NEVEAH",
-    gender: "F",
-    timestamp: 1588024680000,
-    profileURL: Submission3,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 7,
-    name: "Aiden",
-    gender: "M",
-    timestamp: 1588027380000,
-    profileURL: Submission1,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 8,
-    name: "RAWIRI",
-    gender: "M",
-    timestamp: 1588026420000,
-    profileURL: Submission2,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-  {
-    id: 9,
-    name: "NEVEAH",
-    gender: "F",
-    timestamp: 1588024680000,
-    profileURL: Submission3,
-    projectURL: StudentProject1,
-    status: "submited",
-    select: false,
-    helpRequest: true,
-  },
-];
+// export const SubmissionData = [
+//   {
+//     id: 1,
+//     name: "Aiden",
+//     gender: "M",
+//     timestamp: 1588027380000,
+//     profileURL: Submission1,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 2,
+//     name: "RAWIRI",
+//     gender: "M",
+//     timestamp: 1588026420000,
+//     profileURL: Submission2,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 3,
+//     name: "NEVEAH",
+//     gender: "F",
+//     timestamp: 1588024680000,
+//     profileURL: Submission3,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 4,
+//     name: "Aiden",
+//     gender: "M",
+//     timestamp: 1588027380000,
+//     profileURL: Submission1,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 5,
+//     name: "RAWIRI",
+//     gender: "M",
+//     timestamp: 1588026420000,
+//     profileURL: Submission2,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 6,
+//     name: "NEVEAH",
+//     gender: "F",
+//     timestamp: 1588024680000,
+//     profileURL: Submission3,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 7,
+//     name: "Aiden",
+//     gender: "M",
+//     timestamp: 1588027380000,
+//     profileURL: Submission1,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 8,
+//     name: "RAWIRI",
+//     gender: "M",
+//     timestamp: 1588026420000,
+//     profileURL: Submission2,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+//   {
+//     id: 9,
+//     name: "NEVEAH",
+//     gender: "F",
+//     timestamp: 1588024680000,
+//     profileURL: Submission3,
+//     projectURL: StudentProject1,
+//     status: "submited",
+//     select: false,
+//     helpRequest: true,
+//   },
+// ];
 
 export const slideshow = [
   {
@@ -217,167 +204,167 @@ export const studentCreation = [
 
 // Navigation Data
 
-export const NavTeacherDashboard = [
-  {
-    id: 1,
-    imgURL: TeacherNav1,
-    title: "progress tracker",
-    linkto: "",
-  },
-  {
-    id: 2,
-    imgURL: TeacherNav2,
-    title: "student profile",
-    linkto: "/teachers/studentprofile",
-  },
-  {
-    id: 3,
-    imgURL: TeacherNav3,
-    title: "help requests",
-    linkto: "/teachers/requests",
-  },
-  {
-    id: 4,
-    imgURL: TeacherNav4,
-    title: "project submissions",
-    linkto: "/teachers/submission",
-  },
-  {
-    id: 5,
-    imgURL: TeacherNav5,
-    title: "project library",
-    linkto: "/teachers/projects",
-  },
-];
+// export const NavTeacherDashboard = [
+//   {
+//     id: 1,
+//     imgURL: TeacherNav1,
+//     title: "progress tracker",
+//     linkto: "",
+//   },
+//   {
+//     id: 2,
+//     imgURL: TeacherNav2,
+//     title: "student profile",
+//     linkto: "/teachers/studentprofile",
+//   },
+//   {
+//     id: 3,
+//     imgURL: TeacherNav3,
+//     title: "help requests",
+//     linkto: "/teachers/requests",
+//   },
+//   {
+//     id: 4,
+//     imgURL: TeacherNav4,
+//     title: "project submissions",
+//     linkto: "/teachers/submission",
+//   },
+//   {
+//     id: 5,
+//     imgURL: TeacherNav5,
+//     title: "project library",
+//     linkto: "/teachers/projects",
+//   },
+// ];
 
-export const NavTeacherSetting = [
-  {
-    id: 1,
-    imgURL: TeacherSetting1,
-    title: "Profile",
-    linkto: "/teachers/profile",
-  },
-  {
-    id: 2,
-    imgURL: TeacherSetting2,
-    title: "Settings",
-    linkto: "/teachers/settings",
-  },
-  {
-    id: 3,
-    imgURL: TeacherSetting3,
-    title: "Logout",
-    linkto: "",
-  },
-];
+// export const NavTeacherSetting = [
+//   {
+//     id: 1,
+//     imgURL: TeacherSetting1,
+//     title: "Profile",
+//     linkto: "/teachers/profile",
+//   },
+//   {
+//     id: 2,
+//     imgURL: TeacherSetting2,
+//     title: "Settings",
+//     linkto: "/teachers/settings",
+//   },
+//   {
+//     id: 3,
+//     imgURL: TeacherSetting3,
+//     title: "Logout",
+//     linkto: "",
+//   },
+// ];
 
-export const NavStudentSetting = [
-  {
-    id: 1,
-    imgURL: TeacherSetting1,
-    title: "Profile",
-    linkto: "/students/profile",
-  },
-  {
-    id: 2,
-    imgURL: TeacherSetting2,
-    title: "Settings",
-    linkto: "/students/settings",
-  },
-  {
-    id: 3,
-    imgURL: TeacherSetting3,
-    title: "Logout",
-    linkto: "",
-  },
-];
+// export const NavStudentSetting = [
+//   {
+//     id: 1,
+//     imgURL: TeacherSetting1,
+//     title: "Profile",
+//     linkto: "/students/profile",
+//   },
+//   {
+//     id: 2,
+//     imgURL: TeacherSetting2,
+//     title: "Settings",
+//     linkto: "/students/settings",
+//   },
+//   {
+//     id: 3,
+//     imgURL: TeacherSetting3,
+//     title: "Logout",
+//     linkto: "",
+//   },
+// ];
 
-export const ProjectBuilderStudent = [
-  {
-    id: 1,
-    imgURL: Project1,
-    title: "learning objective",
-    linkto: "/students/objective",
-  },
-  {
-    id: 2,
-    imgURL: Project2,
-    title: "instruction",
-    linkto: "/students/instruction",
-  },
-  {
-    id: 3,
-    imgURL: Project3,
-    title: "video tutorial",
-    linkto: "/students/tutorial",
-  },
-  {
-    id: 4,
-    imgURL: Project4,
-    title: "make project",
-    linkto: "/students/makeproject",
-  },
-  {
-    id: 5,
-    imgURL: Project5,
-    title: "submit project",
-    linkto: "/students/submitproject",
-  },
-  {
-    id: 6,
-    imgURL: Project6,
-    title: "bonus challenge",
-    linkto: "/students/challenge",
-  },
-  {
-    id: 7,
-    imgURL: Project7,
-    title: "take the quiz",
-    linkto: "/students/quiz",
-  },
-];
+// export const ProjectBuilderStudent = [
+//   {
+//     id: 1,
+//     imgURL: Project1,
+//     title: "learning objective",
+//     linkto: "/students/objective",
+//   },
+//   {
+//     id: 2,
+//     imgURL: Project2,
+//     title: "instruction",
+//     linkto: "/students/instruction",
+//   },
+//   {
+//     id: 3,
+//     imgURL: Project3,
+//     title: "video tutorial",
+//     linkto: "/students/tutorial",
+//   },
+//   {
+//     id: 4,
+//     imgURL: Project4,
+//     title: "make project",
+//     linkto: "/students/makeproject",
+//   },
+//   {
+//     id: 5,
+//     imgURL: Project5,
+//     title: "submit project",
+//     linkto: "/students/submitproject",
+//   },
+//   {
+//     id: 6,
+//     imgURL: Project6,
+//     title: "bonus challenge",
+//     linkto: "/students/challenge",
+//   },
+//   {
+//     id: 7,
+//     imgURL: Project7,
+//     title: "take the quiz",
+//     linkto: "/students/quiz",
+//   },
+// ];
 
-export const ProjectBuilderTeacher = [
-  {
-    id: 1,
-    imgURL: Project1,
-    title: "learning objective",
-    linkto: "/teachers/project/objective",
-  },
-  {
-    id: 2,
-    imgURL: Project2,
-    title: "instruction",
-    linkto: "/teachers/project/instruction",
-  },
-  {
-    id: 3,
-    imgURL: Project3,
-    title: "video tutorial",
-    linkto: "/teachers/project/tutorial",
-  },
-  {
-    id: 4,
-    imgURL: Project4,
-    title: "preview project",
-    linkto: "/teachers/project/preview",
-  },
-  {
-    id: 5,
-    imgURL: Project5,
-    title: "check submission",
-    linkto: "/teachers/project/checksubmit",
-  },
-  {
-    id: 6,
-    imgURL: Project6,
-    title: "offline activities",
-    linkto: "/teachers/project/activities",
-  },
-  {
-    id: 7,
-    imgURL: Project7,
-    title: "take the quiz",
-    linkto: "/teachers/project/quizresults",
-  },
-];
+// export const ProjectBuilderTeacher = [
+//   {
+//     id: 1,
+//     imgURL: Project1,
+//     title: "learning objective",
+//     linkto: "/teachers/project/objective",
+//   },
+//   {
+//     id: 2,
+//     imgURL: Project2,
+//     title: "instruction",
+//     linkto: "/teachers/project/instruction",
+//   },
+//   {
+//     id: 3,
+//     imgURL: Project3,
+//     title: "video tutorial",
+//     linkto: "/teachers/project/tutorial",
+//   },
+//   {
+//     id: 4,
+//     imgURL: Project4,
+//     title: "preview project",
+//     linkto: "/teachers/project/preview",
+//   },
+//   {
+//     id: 5,
+//     imgURL: Project5,
+//     title: "check submission",
+//     linkto: "/teachers/project/checksubmit",
+//   },
+//   {
+//     id: 6,
+//     imgURL: Project6,
+//     title: "offline activities",
+//     linkto: "/teachers/project/activities",
+//   },
+//   {
+//     id: 7,
+//     imgURL: Project7,
+//     title: "take the quiz",
+//     linkto: "/teachers/project/quizresults",
+//   },
+// ];

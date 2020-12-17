@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useLocation, useParams } from "react-router-dom";
 import { Routes } from "constants/Routes";
 import { projectbuilder } from "actions/projectActions";
-// import StudentProfile from "screens/StudentProfile/";
 
 const useStyles = makeStyles((theme) => ({
   dashboard: {

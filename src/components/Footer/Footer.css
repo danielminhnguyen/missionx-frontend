@@ -5,17 +5,15 @@ footer {
   justify-content: center;
   font-size: 16px;
   padding: 10rem;
-  .footer-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
-  }
-
-  div {
-    display: flex;
-    flex-direction: column;
-  }
 }
-
+footer .footer-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 2fr;
+}
+footer div {
+  display: flex;
+  flex-direction: column;
+}
 a,
 a:hover,
 a:visited {
