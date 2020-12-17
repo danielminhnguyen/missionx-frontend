@@ -13,6 +13,7 @@ import { Drawer, List, ListItem, ListItemIcon, ListItemText, Typography } from "
 import useStyles from "./styles";
 import { signout } from "actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function DashboardSide(props) {
   const classes = useStyles();
@@ -112,7 +113,9 @@ export default function DashboardSide(props) {
           >
             <div className="column">
               <Profile />
-              <Typography className={classes.bottomLabel}>Profile</Typography>
+              <Link to="/profile">
+                <Typography className={classes.bottomLabel}>Profile</Typography>
+              </Link>
             </div>
             <div className="column">
               <Settings />

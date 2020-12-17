@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Projects.scss";
+
 import { Link, Redirect } from "react-router-dom";
 
 import {
@@ -9,7 +9,6 @@ import {
   Checkbox,
   FormControlLabel,
   Grid,
-  Paper,
   Typography,
 } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";

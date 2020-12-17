@@ -13,7 +13,7 @@ import history from "./history";
 import reportWebVitals from "./reportWebVitals";
 
 // styles
-import "./index.scss";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>

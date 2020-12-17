@@ -2,15 +2,16 @@ import React, { useState } from "react";
 
 import student from "assets/images/modal-student.png";
 import teacher from "assets/images/modal-teacher.png";
-import { Button, Dialog, Grid, Snackbar, Typography, Slide } from "@material-ui/core";
-import Alert from "@material-ui/lab/Alert";
+import { Button, Dialog, Grid, Typography, Slide } from "@material-ui/core";
+// import Alert from "@material-ui/lab/Alert";
 
 import Tabs from "components/Tabs";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { register, signin } from "actions/userActions";
 import useStyles from "./styles";
 import { nameExtract } from "utils";
+import Error from "components/Error";
 
 // TODO: message only appear first time
 
@@ -18,6 +19,8 @@ export default function ModalLoginSignup(props) {
   const classes = useStyles();
   const { show, request, close } = props;
   const [message, setMessage] = useState({ open: false, content: "", type: "" });
+  const userSignin = useSelector((state) => state.userSignin);
+  const { error, loading, userInfo } = userSignin;
 
   const [value, setValue] = useState({
     teacherSigninEmail: "teacher@test.com",
@@ -97,7 +100,8 @@ export default function ModalLoginSignup(props) {
 
   return (
     <div>
-      <Snackbar
+      {error ? <Error /> : null}
+      {/* <Snackbar
         TransitionComponent={TransitionDown}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={message.open}
@@ -107,8 +111,8 @@ export default function ModalLoginSignup(props) {
       >
         <Alert elevation={6} onClose={() => handleMessageClose()} severity={message.type}>
           {message.content}
-        </Alert>
-      </Snackbar>
+        </Alert> */}
+      {/* </Snackbar> */}
       <Dialog
         classes={{ paper: classes.dialogContainer }}
         open={show}

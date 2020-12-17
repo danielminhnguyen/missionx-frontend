@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import "./Slideshow.scss";
+import "./Slideshow.css";
 
 SlideShow.propTypes = {
   data: PropTypes.array,

@@ -1,10 +1,39 @@
-import { Typography } from "@material-ui/core";
-import React from "react";
+import React, { useState } from "react";
+import { Slide, Snackbar, Typography } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 
-export default function Error() {
+export default function Error(props) {
+  const { trigger, type } = props;
+  const [open, setOpen, message] = useState(false);
+
+  const handleMessageClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
+
+  setOpen(trigger);
+
+  function TransitionDown(props) {
+    return <Slide {...props} direction="down" />;
+  }
+
   return (
-    <div>
+    <>
+      <Snackbar
+        TransitionComponent={TransitionDown}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={open}
+        autoHideDuration={2000}
+        onClose={() => handleMessageClose()}
+        message={message}
+      >
+        <Alert elevation={6} onClose={() => handleMessageClose()} severity={type}>
+          {message}
+        </Alert>
+      </Snackbar>
       <Typography variant="h1">PAGE NOT FOUND</Typography>
-    </div>
+    </>
   );
 }

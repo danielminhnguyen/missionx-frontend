@@ -25,7 +25,11 @@ export const signin = (email, password, role) => async (dispatch) => {
     }
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
-    dispatch({ type: USER_SIGNIN_FAIL, payload: error.message });
+    dispatch({
+      type: USER_SIGNIN_FAIL,
+      payload:
+        error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
   }
 };
 
