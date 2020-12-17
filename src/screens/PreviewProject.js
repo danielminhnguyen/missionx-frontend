@@ -1,6 +1,8 @@
 import React from "react";
-import PreviewProjectPic from "assets/images/preview-project.png";
+
 import { makeStyles } from "@material-ui/core";
+
+import { ReactComponent as MakeProject } from "assets/images/makeproject.svg";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -16,7 +18,7 @@ export default function PreviewProject() {
   const classes = useStyles();
   return (
     <div className={classes.container}>
-      <img className={classes.photo} src={PreviewProjectPic} alt="" />
+      <MakeProject className={classes.photo} />
     </div>
   );
 }

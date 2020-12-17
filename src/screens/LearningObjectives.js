@@ -1,12 +1,12 @@
 import { makeStyles, Typography } from "@material-ui/core";
 import React from "react";
 
-import objective1 from "assets/images/objective-block-1-0.png";
+import { ReactComponent as Block1 } from "assets/images/block1.svg";
+import { ReactComponent as Block2 } from "assets/images/block2.svg";
+import { ReactComponent as Block3 } from "assets/images/block3.svg";
 import objective2 from "assets/images/objective-block-1-1.png";
 import objective3 from "assets/images/objective-block-1-2.png";
-import objective4 from "assets/images/objective-block-2-0.png";
 import objective5 from "assets/images/objective-block-2-1.png";
-import objective6 from "assets/images/objective-block-3-0.png";
 import objective7 from "assets/images/objective-block-3-1.png";
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +49,7 @@ export default function LearningObjectives() {
         <div>
           <Typography variant="h4">Look Blocks</Typography>
           <div className={classes.block}>
-            <img src={objective1} alt="" />
+            <Block1 />
             <div>
               <img src={objective2} alt="" />
               <img src={objective3} alt="" />
@@ -59,7 +59,7 @@ export default function LearningObjectives() {
         <div>
           <Typography variant="h4">Control Blocks</Typography>
           <div className={classes.block}>
-            <img src={objective4} alt="" />
+            <Block2 />
             <img src={objective5} alt="" />
           </div>
         </div>
@@ -67,7 +67,7 @@ export default function LearningObjectives() {
         <div>
           <Typography variant="h4">Motion Blocks</Typography>
           <div className={classes.block}>
-            <img src={objective6} alt="" />
+            <Block3 />
             <img src={objective7} alt="" />
           </div>
         </div>
