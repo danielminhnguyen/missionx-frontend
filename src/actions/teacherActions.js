@@ -35,7 +35,7 @@ export const teacherRequestStudent = (teacherID) => async (dispatch) => {
 export const teacherRequestProgress = (teacherID) => async (dispatch) => {
   dispatch({ type: TEACHER_PROGRESS_REQUEST });
   try {
-    const { data: beginnerData } = await Axios.post("API_URL +api/teachers/progressbeginner", {
+    const { data: beginnerData } = await Axios.post(API_URL + "api/teachers/progressbeginner", {
       teacherID,
     });
     const { data: intermediateData } = await Axios.post(

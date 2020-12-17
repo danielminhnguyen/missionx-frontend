@@ -58,7 +58,7 @@ export const listProjects = (values) => async (dispatch) => {
   try {
     const { data } = await Axios.get(
       API_URL +
-        `/api/projects/filter?course='${course}'&limit=${showLimit}&subscription=${subscription}&activity=${activity}&subject=${subject}&level=${level}`
+        `api/projects/filter?course='${course}'&limit=${showLimit}&subscription=${subscription}&activity=${activity}&subject=${subject}&level=${level}`
     );
     // console.log(
     //   `/api/projects/filter?course='${course}'&limit=${showLimit}&subscription=${subscription}&activity=${activity}&subject=${subject}&level=${level}`

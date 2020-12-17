@@ -17,7 +17,7 @@ export const signin = (email, password, role) => async (dispatch) => {
     payload: { email, password, role },
   });
   try {
-    const { data } = await Axios.post(API_URL + "/api/users/signin", { email, password, role });
+    const { data } = await Axios.post(API_URL + "api/users/signin", { email, password, role });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     if (role === "teacher") {
       history.push("/dashboard");
