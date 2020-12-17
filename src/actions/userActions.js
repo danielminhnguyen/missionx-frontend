@@ -1,5 +1,5 @@
 import Axios from "axios";
-import { API_URL } from "config";
+import { API_URL } from "../config/index.js";
 import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
