@@ -3,8 +3,8 @@ import { Slide, Snackbar, Typography } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
 
 export default function Error(props) {
-  const { trigger, type } = props;
-  const [open, setOpen, message] = useState(false);
+  const { message, type } = props;
+  const [open, setOpen] = useState(true);
 
   const handleMessageClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -12,8 +12,6 @@ export default function Error(props) {
     }
     setOpen(false);
   };
-
-  setOpen(trigger);
 
   function TransitionDown(props) {
     return <Slide {...props} direction="down" />;

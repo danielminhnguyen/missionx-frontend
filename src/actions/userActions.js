@@ -35,7 +35,6 @@ export const signin = (email, password, role) => async (dispatch) => {
 
 export const signout = () => async (dispatch) => {
   localStorage.removeItem("userInfo");
-  localStorage.removeItem("cartItems");
   dispatch({ type: USER_SIGNOUT });
   history.push("/");
 };
@@ -45,10 +44,16 @@ export const register = (firstname, lastname, email, password, role) => async (d
     type: USER_REGISTER_REQUEST,
     payload: { firstname, lastname, email, password, role },
   });
+  console.log("dispatch");
   try {
-    const { data } = await Axios.post("api/users/signin", { email, password, role });
+    const { data } = await Axios.post("api/users/register", {
+      firstname,
+      lastname,
+      email,
+      password,
+      role,
+    });
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
-    dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     localStorage.setItem("userInfo", JSON.stringify(data));
   } catch (error) {
     dispatch({ type: USER_REGISTER_FAIL, payload: error.message });

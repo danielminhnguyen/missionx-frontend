@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import student from "assets/images/modal-student.png";
 import teacher from "assets/images/modal-teacher.png";
-import { Button, Dialog, Grid, Typography, Slide } from "@material-ui/core";
+import { Button, Dialog, Grid, Typography } from "@material-ui/core";
 // import Alert from "@material-ui/lab/Alert";
 
 import Tabs from "components/Tabs";
@@ -10,7 +10,7 @@ import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { register, signin } from "actions/userActions";
 import useStyles from "./styles";
-import { nameExtract } from "utils";
+import { nameExtract, validateEmail } from "utils";
 import Error from "components/Error";
 
 // TODO: message only appear first time
@@ -18,9 +18,9 @@ import Error from "components/Error";
 export default function ModalLoginSignup(props) {
   const classes = useStyles();
   const { show, request, close } = props;
-  const [message, setMessage] = useState({ open: false, content: "", type: "" });
+  const [errMessage, setErrMessage] = useState();
   const userSignin = useSelector((state) => state.userSignin);
-  const { error, loading, userInfo } = userSignin;
+  const { error } = userSignin;
 
   const [value, setValue] = useState({
     teacherSigninEmail: "teacher@test.com",
@@ -36,13 +36,6 @@ export default function ModalLoginSignup(props) {
     studentRegisterPassword: null,
     studentRegisterRepeatPassword: null,
   });
-
-  const handleMessageClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setMessage({ ...message, open: false });
-  };
 
   const inputHandleChange = (item) => (event) => {
     setValue({ ...value, [item]: event.target.value });
@@ -65,54 +58,46 @@ export default function ModalLoginSignup(props) {
     let confirmPassword = value[`${role}RegisterRepeatPassword`];
     let fullname = value[`${role}RegisterFullname`];
     let email = value[`${role}RegisterEmail`];
+    console.log(password, confirmPassword, fullname, email);
+    if (password && confirmPassword && fullname && email) {
+      setErrMessage("Please enter all required fields");
+      return;
+    }
+
+    if (fullname.indexOf(" ") < 0) {
+      setErrMessage("Please enter full name");
+      return;
+    }
+
+    let [firstname, lastname] = nameExtract(fullname);
+
+    if (!validateEmail(email)) {
+      setErrMessage("Email must have format example@example.com");
+      return;
+    }
 
     if (password === "" || confirmPassword === "") {
-      console.log(message);
-      setMessage({
-        open: true,
-        content: "Passwords cannot be empty",
-        type: "error",
-      });
+      setErrMessage("Passwords cannot be empty");
+      return;
+    }
+
+    if (password.length <= 8 || confirmPassword <= 8) {
+      setErrMessage("Password must be over 8 characters");
       return;
     }
 
     if (password !== confirmPassword) {
-      console.log("clickInside");
-      setMessage({
-        open: true,
-        content: "Password and confirm password are not matched",
-        type: "error",
-      });
+      setErrMessage("Password and confirm password are not matched");
       return;
     }
 
-    if (fullname && email && password) {
-      let [firstname, lastname] = nameExtract(value[`${role}RegisterFullname`]);
-      if (email && password) {
-        dispatch(register(firstname, lastname, email, password, role));
-      }
-    }
+    dispatch(register(firstname, lastname, email, password, role));
   };
-
-  function TransitionDown(props) {
-    return <Slide {...props} direction="down" />;
-  }
 
   return (
     <div>
-      {error ? <Error /> : null}
-      {/* <Snackbar
-        TransitionComponent={TransitionDown}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
-        open={message.open}
-        autoHideDuration={2000}
-        onClose={() => handleMessageClose()}
-        message={message.content}
-      >
-        <Alert elevation={6} onClose={() => handleMessageClose()} severity={message.type}>
-          {message.content}
-        </Alert> */}
-      {/* </Snackbar> */}
+      {errMessage ? <Error message={errMessage} /> : null}
+      {error ? <Error message={error} /> : null}
       <Dialog
         classes={{ paper: classes.dialogContainer }}
         open={show}
