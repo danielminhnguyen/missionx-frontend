@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./OverlayIcon.scss";
+import "./OverlayIcon.css";
 
 OverlayIcon.propTypes = {
   data: PropTypes.array,
