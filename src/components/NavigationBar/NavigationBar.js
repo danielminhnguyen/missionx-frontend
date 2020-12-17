@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PropTypes from "prop-types";
 
 // material ui
-import { Popover, Typography, AppBar, Toolbar } from "@material-ui/core";
+import { Popover, Typography, AppBar, Toolbar, Paper } from "@material-ui/core";
 import useStyles from "./styles";
 
 // pictures
@@ -74,7 +74,7 @@ export default function NavigationBar(props) {
         )}
 
         <Typography variant="h3">
-          <Link to="/">Teachers</Link>
+          <Link to="/dashboard">Teachers</Link>
         </Typography>
       </Toolbar>
       <div className={classes.subControl}>
@@ -109,11 +109,15 @@ export default function NavigationBar(props) {
               }}
               disableRestoreFocus
             >
-              <Typography variant="h4">My Profile</Typography>
-              <Typography variant="h4">Settings</Typography>
-              <Typography onClick={handleSignOut} variant="h4">
-                Log out
-              </Typography>
+              <Paper>
+                <Link to="/profile">
+                  <Typography variant="h4">My Profile</Typography>
+                </Link>
+                <Typography variant="h4">Settings</Typography>
+                <Typography onClick={handleSignOut} variant="h4">
+                  Log out
+                </Typography>
+              </Paper>
             </Popover>
           </div>
         ) : (

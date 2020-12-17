@@ -5,6 +5,10 @@ import ClassNames from "classnames";
 const useStyles = makeStyles((theme) => ({
   circleWrapper: {
     display: "flex",
+    minWidth: 650,
+    maxWidth: 850,
+    justifyContent: "space-evenly",
+    alignItems: "space-evenly",
   },
   circle: {
     display: "flex",
@@ -15,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: "50%",
     backgroundColor: "#FFFFFF",
     border: "solid #A2A0A0 1px",
-    margin: theme.spacing(1),
+    // margin: theme.spacing(1),
   },
   circleActive: {
     backgroundColor: "#99EDCC",

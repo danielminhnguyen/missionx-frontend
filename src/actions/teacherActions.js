@@ -7,12 +7,18 @@ import {
   TEACHER_MARKHELP_FAIL,
   TEACHER_MARKHELP_REQUEST,
   TEACHER_MARKHELP_SUCCESS,
+  TEACHER_MARKSUBMISSION_FAIL,
+  TEACHER_MARKSUBMISSION_REQUEST,
+  TEACHER_MARKSUBMISSION_SUCCESS,
   TEACHER_PROGRESS_FAIL,
   TEACHER_PROGRESS_REQUEST,
   TEACHER_PROGRESS_SUCCESS,
   TEACHER_STUDENT_PROFILES_FAIL,
   TEACHER_STUDENT_PROFILES_REQUEST,
   TEACHER_STUDENT_PROFILES_SUCCESS,
+  TEACHER_SUBMISSION_FAIL,
+  TEACHER_SUBMISSION_REQUEST,
+  TEACHER_SUBMISSION_SUCCESS,
 } from "constants/teacherConstants";
 
 export const teacherProfileReq = (teacherID) => async (dispatch) => {
@@ -42,6 +48,26 @@ export const teacherMarkRequests = (students) => async (dispatch) => {
     dispatch({ type: TEACHER_MARKHELP_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: TEACHER_MARKHELP_FAIL, payload: error.message });
+  }
+};
+
+export const teacherMarkSubmission = (students) => async (dispatch) => {
+  dispatch({ type: TEACHER_MARKSUBMISSION_REQUEST });
+  try {
+    const { data } = await Axios.post(API_URL + "api/teachers/marksubmission", { students });
+    dispatch({ type: TEACHER_MARKSUBMISSION_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: TEACHER_MARKSUBMISSION_FAIL, payload: error.message });
+  }
+};
+
+export const teacherRequestSubmission = (teacherID) => async (dispatch) => {
+  dispatch({ type: TEACHER_SUBMISSION_REQUEST });
+  try {
+    const { data } = await Axios.post(API_URL + "api/teachers/submission", { teacherID });
+    dispatch({ type: TEACHER_SUBMISSION_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: TEACHER_SUBMISSION_FAIL, payload: error.message });
   }
 };
 

@@ -73,13 +73,13 @@ export default function ProgressTracker() {
                       Completed
                     </Typography>
                   </div>
-                  <div>
+                  <>
                     <ProgressBar
                       startNo={1}
                       end={15}
                       activeArray={convertStringtoArray(student.Beginner)}
                     />
-                  </div>
+                  </>
                 </Paper>
               ))}
             </>

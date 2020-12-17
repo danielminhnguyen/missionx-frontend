@@ -59,7 +59,7 @@ export default function ModalLoginSignup(props) {
     let fullname = value[`${role}RegisterFullname`];
     let email = value[`${role}RegisterEmail`];
     console.log(password, confirmPassword, fullname, email);
-    if (password && confirmPassword && fullname && email) {
+    if (password !== "" && confirmPassword !== "" && fullname !== "" && email !== "") {
       setErrMessage("Please enter all required fields");
       return;
     }

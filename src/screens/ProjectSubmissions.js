@@ -1,14 +1,19 @@
-import { Card, Checkbox, makeStyles, Typography } from "@material-ui/core";
-import { teacherRequestStudent } from "actions/teacherActions";
+import { Button, Card, Checkbox, makeStyles, Modal, Typography } from "@material-ui/core";
+import { teacherMarkSubmission, teacherRequestSubmission } from "actions/teacherActions";
 import Error from "components/Error";
 import Loading from "components/Loading";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+
 import { timeFormat, dateFormat } from "utils";
+import { ReactComponent as TickIcon } from "assets/images/tick.svg";
+import { ReactComponent as DownloadIcon } from "assets/images/download.svg";
+import { ReactComponent as ZoominIcon } from "assets/images/zoom.svg";
 
 const useStyles = makeStyles((theme) => ({
-  title: { marginBottom: theme.spacing(3) },
+  title: {
+    marginBottom: theme.spacing(3),
+  },
   card: {
     minHeight: 60,
     width: "60vw",
@@ -32,6 +37,43 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "flex-end",
   },
+  topControl: {
+    display: "flex",
+    flexDirection: "row",
+    paddingRight: theme.spacing(10),
+    paddingLeft: theme.spacing(10),
+  },
+  button: {
+    "& svg": {
+      marginRight: theme.spacing(1),
+    },
+  },
+  profilePic: {
+    height: 40,
+  },
+  submissionContent: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "flex-start",
+    marginLeft: theme.spacing(4),
+  },
+  projectImage: {
+    height: 70,
+    marginLeft: theme.spacing(3),
+  },
+  enlargeButton: {
+    fontSize: "0.5rem",
+    marginLeft: theme.spacing(3),
+  },
+  projectImageEnlarge: {
+    height: 400,
+  },
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 }));
 
 export default function ProjectSubmission() {
@@ -39,25 +81,58 @@ export default function ProjectSubmission() {
   const dispatch = useDispatch();
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  const teacherHelpReq = useSelector((state) => state.teacherHelpReq);
-  const { studentsInfo, loading, error } = teacherHelpReq;
-
+  const teacherSubmissionReq = useSelector((state) => state.teacherSubmissionReq);
+  const { studentsInfo, loading, error } = teacherSubmissionReq;
+  const [checkedList, setCheckedList] = useState([]);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     if (userInfo) {
-      dispatch(teacherRequestStudent(userInfo.UserID));
+      dispatch(teacherRequestSubmission(userInfo.UserID));
     }
   }, [dispatch, userInfo]);
 
-  if (!userInfo) {
-    return <Redirect to="/" />;
-  }
+  const handleCheck = (event) => {
+    const list = [...checkedList];
+    if (event.target.checked === true) {
+      list.push(event.target.name);
+      setCheckedList(list);
+    } else {
+      list.pop(event.target.name.toString());
+      setCheckedList(list);
+    }
+    console.log(checkedList);
+  };
+
+  const handleClick = () => {
+    dispatch(teacherMarkSubmission(checkedList));
+    dispatch(teacherRequestSubmission(userInfo.UserID));
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <>
-      <div>
+      <div className={classes.topControl}>
         <Typography variant="h3" align="left" className={classes.title}>
           PROJECT SUMBMISSION
         </Typography>
+        <div className={classes.grow}></div>
+        <div className="row">
+          <Button className={classes.button}>
+            <DownloadIcon />
+            REPLY
+          </Button>
+          <Button className={classes.button} onClick={() => handleClick()}>
+            <TickIcon />
+            MARK AS DONE
+          </Button>
+        </div>
       </div>
       {loading ? (
         <Loading open={loading} />
@@ -66,18 +141,59 @@ export default function ProjectSubmission() {
       ) : studentsInfo ? (
         studentsInfo.map((student) => (
           <div className="row">
-            <Checkbox color="default" />
-            <Card className={classes.card}>
-              <img src={student.ProfilePic} alt="" />
-              <div className={classes.grow}>
-                {student.FirstName} needs help with {(student.Gender = "M" ? "his" : "her")}{" "}
-                projects
-              </div>
-              <div className={classes.date}>
-                <div>{dateFormat(student.DateCreated)}</div>
-                <div>{timeFormat(student.DateCreated)}</div>
-              </div>
-            </Card>
+            {student.DateSubmitted !== null ? (
+              <>
+                <Checkbox name={student.ID} color="default" onChange={handleCheck} />
+                <Card className={classes.card}>
+                  <img className={classes.profilePic} src={student.ProfilePic} alt="" />
+                  <div className={classes.grow}>
+                    <div className={classes.submissionContent}>
+                      <div>
+                        {student.FirstName} submitted {(student.Gender = "M" ? "his" : "her")}{" "}
+                        projects
+                      </div>
+                      <Button>
+                        <div className="column">
+                          <img className={classes.projectImage} src={student.Submission} alt="" />
+                          <Button className={classes.enlargeButton} onClick={handleOpen}>
+                            <ZoominIcon />
+                            Enlarge Photo
+                          </Button>
+                          <Modal className={classes.modal} open={open} onClose={handleClose}>
+                            <img
+                              className={classes.projectImageEnlarge}
+                              src={student.Submission}
+                              alt=""
+                            />
+                          </Modal>
+                        </div>
+                      </Button>
+                    </div>
+                  </div>
+                  <div className={classes.date}>
+                    <div>{dateFormat(student.DateStarted)}</div>
+                    <div>{timeFormat(student.DateStarted)}</div>
+                  </div>
+                </Card>
+              </>
+            ) : student.DateSubmitted === null && student.ShowRequest === 1 ? (
+              <>
+                <Checkbox name={student.ID} color="default" onChange={handleCheck} />
+                <Card className={classes.card}>
+                  <img className={classes.profilePic} src={student.ProfilePic} alt="" />
+                  <div className={classes.grow}>
+                    <div className={classes.submissionContent}>
+                      {student.FirstName} want to show {student.Gender === "M" ? "his" : "her"}{" "}
+                      projects
+                    </div>
+                  </div>
+                  <div className={classes.date}>
+                    <div>{dateFormat(student.DateStarted)}</div>
+                    <div>{timeFormat(student.DateStarted)}</div>
+                  </div>
+                </Card>
+              </>
+            ) : null}
           </div>
         ))
       ) : null}

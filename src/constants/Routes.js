@@ -27,6 +27,7 @@ import CheckSubmission from "screens/CheckSubmission";
 import QuizResults from "screens/QuizResults";
 import { Redirect } from "react-router-dom";
 import ProgressTracker from "screens/ProgressTracker";
+import SubmitProject from "screens/SubmitProject";
 
 export const Routes = [
   // teacher dashboard
@@ -167,7 +168,7 @@ export const Routes = [
     layout: "projects",
     icon: <CheckSubmissionIcon />,
     label: "Submit Project",
-    component: <CheckSubmission />,
+    component: <SubmitProject />,
   },
   {
     id: 18,

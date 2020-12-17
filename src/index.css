@@ -154,6 +154,14 @@ input {
   justify-content: center;
   align-items: center;
 }
+
+.column-even {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .column-start {
   display: flex;
   flex-direction: column;

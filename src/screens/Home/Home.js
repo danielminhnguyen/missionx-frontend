@@ -8,6 +8,7 @@ import Tabs from "components/Tabs/Tabs";
 import bulletpoint from "./bullet-point.png";
 import section4 from "./home-sectionfour.png";
 import { Typography } from "@material-ui/core";
+import HomeHeader from "assets/images/header-image.png";
 
 Home.propTypes = {
   signUp: PropTypes.func,
@@ -16,7 +17,9 @@ Home.propTypes = {
 export default function Home(props) {
   return (
     <div className="content-wrapper">
-      <section className="header-bottom" src="/home-header.png">
+      <section className="header-bottom">
+        <img className="header-image" src={HomeHeader} alt="" />
+
         <div>
           <h1>
             Prepare young minds for a better <span>future.</span>

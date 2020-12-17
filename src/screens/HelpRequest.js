@@ -42,6 +42,14 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: theme.spacing(10),
     paddingLeft: theme.spacing(10),
   },
+  button: {
+    "& svg": {
+      marginRight: theme.spacing(1),
+    },
+  },
+  profilePic: {
+    height: 40,
+  },
 }));
 
 export default function HelpRequest() {
@@ -77,6 +85,7 @@ export default function HelpRequest() {
 
   const handleClick = () => {
     dispatch(teacherMarkRequests(checkedList));
+    dispatch(teacherRequestStudent(userInfo.UserID));
   };
 
   return (
@@ -87,11 +96,11 @@ export default function HelpRequest() {
         </Typography>
         <div className={classes.grow}></div>
         <div className="row">
-          <Button>
+          <Button className={classes.button}>
             <Reply />
-            REPLY
+            DOWNLOAD FILES
           </Button>
-          <Button onClick={() => handleClick()}>
+          <Button className={classes.button} onClick={() => handleClick()}>
             <Tick />
             MARK AS DONE
           </Button>
@@ -107,9 +116,9 @@ export default function HelpRequest() {
             <div className="row">
               <Checkbox name={student.UserID} color="default" onChange={handleCheck} />
               <Card className={classes.card}>
-                <img src={student.ProfilePic} alt="" />
+                <img className={classes.profilePic} src={student.ProfilePic} alt="" />
                 <div className={classes.grow}>
-                  {student.FirstName} needs help with {(student.Gender = "M" ? "his" : "her")}{" "}
+                  {student.FirstName} needs help with {(student.Gender = "M" ? "his " : "her ")}
                   projects
                 </div>
                 <div className={classes.date}>

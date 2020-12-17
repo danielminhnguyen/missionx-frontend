@@ -4,8 +4,10 @@ import { userRegisterReducer, userSigninReducer } from "reducers/userReducers";
 import {
   teacherHelpReqReducer,
   teacherMarkRequestsReducer,
+  teacherMarkSubmissionReducer,
   teacherProgressReqReducer,
   teacherReqProfileReducer,
+  teacherSubmissionReqReducer,
 } from "reducers/teacherReducers";
 import { projectBuilderReducers, projectListReducers } from "reducers/projectReducers";
 
@@ -27,6 +29,8 @@ const reducer = combineReducers({
   projectBuilder: projectBuilderReducers,
   teacherProgress: teacherProgressReqReducer,
   teacherMarkRequests: teacherMarkRequestsReducer,
+  teacherSubmissionReq: teacherSubmissionReqReducer,
+  teacherMarkSubmission: teacherMarkSubmissionReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
