@@ -3,6 +3,7 @@ const secondary = "#F91C85";
 const warning = "#FFC260";
 const success = "#3CD4A0";
 const info = "#9013FE";
+const warning2 = "#ff6961";
 
 export const theme = {
   palette: {
@@ -15,6 +16,7 @@ export const theme = {
     },
     warning: {
       main: warning,
+      secondary: warning2,
     },
     success: {
       main: success,

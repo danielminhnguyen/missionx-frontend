@@ -28,6 +28,12 @@ export function timeFormat(timestamp) {
   return date.toLocaleString("en-US", { hour: "numeric", minute: "numeric", hour12: true });
 }
 
+export function birthDayFormat(timestamp) {
+  const date = new Date(timestamp);
+  const stringDate = date.toString();
+  return `${date.getDate()} ${stringDate.substring(4, 7)} ${date.getFullYear()}`;
+}
+
 export function convertStringtoArray(str) {
   if (str.indexOf(",") > 0) {
     return str.split(",");

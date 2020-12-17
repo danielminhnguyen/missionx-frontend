@@ -96,6 +96,9 @@ export default makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-evenly",
+    "& div": {
+      cursor: "pointer",
+    },
     "& p": {
       display: "block",
     },
@@ -103,6 +106,9 @@ export default makeStyles((theme) => ({
   bottomMenuClose: {
     display: "flex",
     flexDirection: "column",
+    "& div": {
+      cursor: "pointer",
+    },
     "& svg": {
       marginTop: theme.spacing(2),
     },

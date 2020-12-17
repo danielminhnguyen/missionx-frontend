@@ -5,6 +5,7 @@ import Home from "screens/Home/Home";
 import ProjectsList from "screens/ProjectsList/ProjectsList";
 import ModalLoginSignup from "components/ModalLoginSignup/ModalLoginSignup";
 import { Switch, Route } from "react-router-dom";
+import Profile from "screens/Profile";
 
 export default function Main() {
   const [modalOpen, setmodalOpen] = useState(false);
@@ -27,10 +28,10 @@ export default function Main() {
           <Home signUp={openModal} />
         </Route>
         <Route path="/profile">
-          <Home />
+          <Profile />
         </Route>
         <Route path="/projects">
-          <ProjectsList />
+          <ProjectsList closeModal={ModalClose} />
         </Route>
       </Switch>
       <Footer />

@@ -15,19 +15,24 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
 import { listProjects } from "actions/projectActions";
+import Loading from "components/Loading";
+import Error from "components/Error";
 
 // TODO: reduce checkbox border
 
 export default function Projects(props) {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const { closeModal } = props;
 
   const projectList = useSelector((state) => state.projectList);
-  const { projectsInfo } = projectList;
+  const { projectsInfo, loading, error } = projectList;
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const role = userInfo.Role;
+
+  closeModal();
 
   const [checkValue, setCheckValue] = useState({
     free: true,
@@ -135,8 +140,8 @@ export default function Projects(props) {
           ))}
         </Grid>
         <Grid item xs={10}>
-          <div className="column">
-            <div className="row">
+          <div className={classes.projectsContainer}>
+            <div className={classes.topController}>
               <ButtonGroup className={classes.buttonWrapper} variant="contained">
                 <Button
                   className={checkValue.course === "Beginner" ? classes.buttonActive : ""}
@@ -161,7 +166,7 @@ export default function Projects(props) {
                 </Button>
               </ButtonGroup>
               <div className={classes.grow}></div>
-              <span>SHOW</span>
+              <Typography variant="body1">SHOW</Typography>
               <Box boxShadow={0}>
                 <ButtonGroup className={classes.buttonWrapper} variant="contained">
                   <Button
@@ -199,27 +204,31 @@ export default function Projects(props) {
               container
               spacing={3}
             >
-              {projectsInfo
-                ? projectsInfo.map((project) => (
-                    <Grid item xs={4} classes={{ root: classes.projectItem }}>
-                      <Paper className={{ root: classes.projectPaperRoot }} elevation={4}>
-                        <Link to={`/projects/${project.ProjectID}`}>
-                          <img src={project.Image} alt="" />
-                        </Link>
-                      </Paper>
+              {loading ? (
+                <Loading />
+              ) : error ? (
+                <Error />
+              ) : projectsInfo ? (
+                projectsInfo.map((project) => (
+                  <Grid item xs={4} classes={{ root: classes.projectItem }}>
+                    <Link to={`/projects/${project.ProjectID}`}>
+                      <Box className={classes.projectPaperRoot} boxShadow={4}>
+                        <img src={project.Image} alt="" />
+                      </Box>
+                    </Link>
 
-                      <Typography variant="h3">{project.Name}</Typography>
-                      <Typography>
-                        <span>{project.Course}</span> | {project.ActivityType}
-                      </Typography>
-                    </Grid>
-                  ))
-                : null}
+                    <Typography variant="h3">{project.Name}</Typography>
+                    <Typography>
+                      <span>{project.Course}</span> | {project.ActivityType}
+                    </Typography>
+                  </Grid>
+                ))
+              ) : null}
             </Grid>
             {role === "teacher" ? (
               <div className="row-end">
                 <Button variant="contained">Back To Top</Button>
-                <Button variant="contained">
+                <Button variant="contained" color="secondary">
                   <Link to="/dashboard">Back To Dashboard</Link>
                 </Button>
               </div>

@@ -52,7 +52,10 @@ export default function DashBoard(props) {
   // fetching user dashboard and layout
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  const role = userInfo.Role;
+  let role;
+  if (userInfo) {
+    role = userInfo.Role;
+  }
   const routes = Routes.filter(({ user, layout }) => user === role && layout === sideLayout);
 
   console.log("params" + projectid);
