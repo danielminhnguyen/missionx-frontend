@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { userRegisterReducer, userSigninReducer } from "reducers/userReducers";
 import {
   teacherHelpReqReducer,
+  teacherMarkRequestsReducer,
   teacherProgressReqReducer,
   teacherReqProfileReducer,
 } from "reducers/teacherReducers";
@@ -25,6 +26,7 @@ const reducer = combineReducers({
   projectList: projectListReducers,
   projectBuilder: projectBuilderReducers,
   teacherProgress: teacherProgressReqReducer,
+  teacherMarkRequests: teacherMarkRequestsReducer,
 });
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

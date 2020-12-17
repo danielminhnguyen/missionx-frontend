@@ -2,11 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import SlideShow from "components/Slideshow/Slideshow";
 import OverlayIcon from "components/OverlayIcon/OverlayIcon";
-import { slideshow, digitalSkills, studentCreation } from "../../dataset";
+import { slideshow, digitalSkills, studentCreation } from "./dataset";
 import "./Home.css";
 import Tabs from "components/Tabs/Tabs";
 import bulletpoint from "./bullet-point.png";
 import section4 from "./home-sectionfour.png";
+import { Typography } from "@material-ui/core";
 
 Home.propTypes = {
   signUp: PropTypes.func,
@@ -48,7 +49,7 @@ export default function Home(props) {
               <h1>What we offer</h1>
               <p>
                 The Creative Problem Solving programme is series of digital creation projects aimed
-                to encourage self-motivation and student agency, designed by New Zealand’s leading
+                to encourage self-motivation and student agency, designed by New Zealandâ€™s leading
                 IT industry experts and schools.
               </p>
             </div>
@@ -64,7 +65,7 @@ export default function Home(props) {
         </div>
       </section>
 
-      <section className="section-2">
+      <section className="section-2" id="home-icon">
         <h2>
           Teaching kids programming and digital skills is <span>MORE</span> than just writing code.
         </h2>
@@ -76,10 +77,27 @@ export default function Home(props) {
 
         <Tabs>
           <div label="LEARNING PATHWAYS">
-            <p>Content</p>
+            <Typography variant="h3">
+              Co-Designed by IT industry exprets and schools in New Zealand, the creative Problem
+              Solving Programme is designed as a series of Scratch-based digital creation projects
+              and unplugged activities, aimed to encourage self-motivation and student agency, and
+              achieve both progress Outcomes of Digital Technologies Curriculum.
+            </Typography>
           </div>
           <div label="DIGITAL TECHNOLOGIES">
-            <p>Content</p>
+            <Typography variant="h3">
+              People use these competencies to live, learn, work, and contribute as active members
+              of their communities. More complex than skills, the competencies draw also on
+              knowledge, attitudes, and values in ways that lead to action. They are not separate or
+              stand-alone. They are the key to learning in every learning area. The development of
+              the competencies is both an end in itself (a goal) and the means by which other ends
+              are achieved. Successful learners make use of the competencies in combination with all
+              the other resources available to them. These include personal goals, other people,
+              community knowledge and values, cultural tools (language, symbols, and texts), and the
+              knowledge and skills found in different learning areas. As they develop the
+              competencies, successful learners are also motivated to use them, recognising when and
+              how to do so and why.
+            </Typography>
           </div>
           <div label="KEY COMPETENCIES">
             <div>
@@ -147,7 +165,7 @@ export default function Home(props) {
                       <span>PARTICIPATION AND COLLABORATION</span>
                       <p>
                         The programme encourages students to be involved in communities, such as
-                        family, whānau, school, and contribute and make connections with other
+                        family, whÄnau, school, and contribute and make connections with other
                         people
                       </p>
                     </div>
@@ -157,7 +175,11 @@ export default function Home(props) {
             </div>
           </div>
           <div label="IR4.0">
-            <p>Content</p>
+            <Typography variant="h3">
+              Designed with IT industry experts, the programme develops the cognitive and social
+              competencies students will find applicable to jobs and careers in the fourth
+              industrial revolution (IR4)
+            </Typography>
           </div>
         </Tabs>
       </section>
@@ -167,12 +189,16 @@ export default function Home(props) {
           <img src={section4} alt="" />
         </div>
         <div>
-          <h1>What are you waiting for?</h1>
-          <h4>Start teaching Digital Technologies today.</h4>
-          <span>
+          <Typography variant="h1" align="left">
+            What are you waiting for?
+          </Typography>
+          <Typography variant="h2" align="left">
+            Start teaching Digital Technologies today.
+          </Typography>
+          <Typography variant="h4" align="left">
             If you need more information, we are happy to answer any questions you may have.
-          </span>
-          <div className="button-wrapper">
+          </Typography>
+          <div className="row">
             <button className="button-two">ENQUIRE NOW</button>
             <button className="button-one" onClick={() => props.signUp("Sign Up")}>
               SIGN UP

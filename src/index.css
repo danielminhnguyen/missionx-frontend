@@ -4,6 +4,7 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
 }
 @media screen and (min-width: 1440px) {
   .header-bottom {
@@ -39,6 +40,10 @@ body {
   .navigation .logo > a > img {
     height: 40px;
   }
+  .section-2 .icon-wrapper {
+    display: flex;
+    flex-direction: column !important;
+  }
 }
 ::placeholder {
   padding-left: 0.5rem;
@@ -66,7 +71,19 @@ input {
   border: solid 0.15rem #a29f9f;
   border-radius: 0.4rem;
 }
+
 .button-one {
+  background-color: #f91c85;
+  color: #ffffff;
+  width: 15rem;
+  height: 2rem;
+  border-radius: 0.4rem;
+  box-shadow: 0px 2px 5px 0px #888888;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.button-four {
   background-color: #e5ab2c !important;
   color: #fff !important;
 }
@@ -143,21 +160,22 @@ input {
   justify-content: flex-start;
   align-items: center;
 }
-.tabs .tab-list {
+
+#login-signup-switch .tabs .tab-list {
   display: flex;
   justify-content: space-evenly;
 }
-.tabs .tab-list .tab-list-active:first-child {
+#login-signup-switch .tabs .tab-list .tab-list-active:first-child {
   border-bottom: solid 2px #43c0f6;
 }
-.tabs .tab-list .tab-list-active {
+#login-signup-switch .tabs .tab-list .tab-list-active {
   border-bottom: solid 2px #f91c85;
 }
-.tabs .tab-list .tab-list-item {
+#login-signup-switch .tabs .tab-list .tab-list-item {
   display: inline-block;
   list-style: none;
 }
-.tabs .tab-content {
+#login-signup-switch .tabs .tab-content {
   display: flex;
   flex-direction: column;
   justify-content: center;

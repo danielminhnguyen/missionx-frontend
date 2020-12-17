@@ -10,13 +10,15 @@ const overrides = {
   },
   typography: {
     h1: {
-      fontSize: "3rem",
+      fontSize: "4rem",
+      fontWeight: 600,
     },
     h2: {
-      fontWeight: "400",
+      fontWeight: 600,
       fontSize: "2rem",
     },
     h3: {
+      fontWeight: 600,
       fontSize: "1.64rem",
     },
     h4: {

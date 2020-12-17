@@ -57,6 +57,10 @@ $button-variant-one: #e5ab2c;
     }
     padding: 0px 1rem !important;
   }
+  .section-2 .icon-wrapper {
+    display: flex;
+    flex-direction: column !important;
+  }
 }
 
 ::placeholder {

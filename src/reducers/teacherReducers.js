@@ -8,6 +8,9 @@ const {
   TEACHER_PROGRESS_REQUEST,
   TEACHER_PROGRESS_SUCCESS,
   TEACHER_PROGRESS_FAIL,
+  TEACHER_MARKHELP_REQUEST,
+  TEACHER_MARKHELP_SUCCESS,
+  TEACHER_MARKHELP_FAIL,
 } = require("constants/teacherConstants");
 
 export const teacherReqProfileReducer = (state = {}, action) => {
@@ -43,6 +46,19 @@ export const teacherProgressReqReducer = (state = {}, action) => {
     case TEACHER_PROGRESS_SUCCESS:
       return { loading: false, studentsInfo: action.payload };
     case TEACHER_PROGRESS_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const teacherMarkRequestsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case TEACHER_MARKHELP_REQUEST:
+      return { loading: true };
+    case TEACHER_MARKHELP_SUCCESS:
+      return { loading: false, markRequests: action.payload };
+    case TEACHER_MARKHELP_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

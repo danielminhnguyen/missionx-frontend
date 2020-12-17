@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import SlideShow from "components/Slideshow/Slideshow";
-import OverlayIcon from "components/OverlayIcon/OverlayIcon";
-import { slideshow, digitalSkills, studentCreation } from "../../dataset";
-// import "./Home.scss";
+// import OverlayIcon from "components/OverlayIcon/OverlayIcon";
+import { slideshow, digitalSkills, studentCreation } from "./dataset";
+// import "./Home.css";
 import Tabs from "components/Tabs/Tabs";
 import bulletpoint from "./bullet-point.png";
 import section4Image from "assets/images/home-sectionfour.png";
 import headerImage from "assets/images/header-image.png";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import useStyles from "./styles";
 
 Home.propTypes = {
@@ -18,20 +18,20 @@ Home.propTypes = {
 export default function Home(props) {
   const classes = useStyles();
   return (
-    <div className="content-wrapper">
-      <Grid container>
+    <div className={classes.content}>
+      <Grid container spacing={5}>
         <Grid item xs={12}>
           <img className={classes.headerImage} src={headerImage} alt="" />
           <Grid item xs={6}>
-            <div>
-              <h1>
+            <div className={classes.section1}>
+              <Typography className={classes.title} variant="h1" align="left">
                 Prepare young minds for a better <span>future.</span>
-              </h1>
-              <p>
+              </Typography>
+              <Typography className={classes.title} variant="h4" align="left">
                 Let us help you advance students in Digital Technologies and other learning areas
                 with our project-based learning programme.
-              </p>
-              <div className="button-wrapper">
+              </Typography>
+              <div className={classes.buttonContainer}>
                 <div>
                   <button className="button-two">Learn More</button>
                 </div>
@@ -39,48 +39,58 @@ export default function Home(props) {
                   <button className="button-one" onClick={() => props.signUp("Sign Up")}>
                     Sign Up
                   </button>
-                  <p>*Basic subscription includes the first 15 projects free of charge.</p>
+                  <Typography variant="body2" align="justify">
+                    *Basic subscription includes the first 15 projects free of charge.
+                  </Typography>
                 </div>
               </div>
             </div>
           </Grid>
           <Grid item xs={6}></Grid>
         </Grid>
-        {/* <section className="header-bottom" src="/home-header.png"></section> */}
 
         <Grid item xs={6}>
-          <div className="section-column">
+          <div className={classes.section2}>
             <div>
-              <div>
-                <h1>What we offer</h1>
-                <p>
+              <div className="section-1">
+                <Typography className={classes.title} variant="h2" align="left">
+                  What we offer
+                </Typography>
+                <Typography className={classes.offerText} align="left">
                   The Creative Problem Solving programme is series of digital creation projects
                   aimed to encourage self-motivation and student agency, designed by New Zealand’s
                   leading IT industry experts and schools.
-                </p>
+                </Typography>
               </div>
               <h1>What will students create?</h1>
               <div className="center-wrapper">
-                <OverlayIcon data={studentCreation} />
+                {studentCreation.map((item) => (
+                  <div className="row">
+                    <img src={item.image} alt="" />
+                    <div className={item.overlay}>
+                      <image src={item.overlay} />
+                      <Typography>{item.title}</Typography>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
-        </Grid>
+    
         <Grid item xs={6}>
-          <div className="section-column">
+          <div className={"section-1"}>
             <SlideShow data={slideshow} />
           </div>
         </Grid>
         <Grid item xs={12}>
-          <h2>
+          <Typography variant="h3" className={classes.teachKid}>
             Teaching kids programming and digital skills is <span>MORE</span> than just writing
             code.
-          </h2>
-          <OverlayIcon data={digitalSkills} />
+          </Typography>
+          {/* <OverlayIcon data={digitalSkills} /> */}
         </Grid>
-        <section className="section-3">
+        <section className={classes.section4}>
           {/* Tab links */}
-
           <Tabs>
             <div label="LEARNING PATHWAYS">
               <h1 class="learningpathwaysh1">Creative Problem Solving</h1>

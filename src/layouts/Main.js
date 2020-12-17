@@ -6,7 +6,6 @@ import ProjectsList from "screens/ProjectsList/ProjectsList";
 import ModalLoginSignup from "components/ModalLoginSignup/ModalLoginSignup";
 import { Switch, Route } from "react-router-dom";
 import Profile from "screens/Profile";
-import { API_URL } from "../config";
 
 export default function Main() {
   const [modalOpen, setmodalOpen] = useState(false);
@@ -24,7 +23,7 @@ export default function Main() {
   return (
     <div className="column">
       <NavigationBar modalClick={openModal} />
-      <div>{API_URL}</div>
+
       <Switch>
         <Route exact path="/">
           <Home signUp={openModal} />

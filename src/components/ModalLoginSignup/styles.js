@@ -20,18 +20,18 @@ export default makeStyles((theme) => ({
     marginBottom: theme.spacing(1),
   },
   tabs: {
-    "& tab-list": {
+    "& .tab-list": {
       display: "flex",
       justifyContent: "space-evenly",
-      "& tab-list-active:first-child": {
+      "& .tab-list-active:first-child": {
         borderBottom: "solid 2px #43c0f6",
       },
-      "& tab-list-item": {
+      "& .tab-list-item": {
         display: "inline-block",
         listStyle: "none",
       },
     },
-    "& tab-content": {
+    "& .tab-content": {
       minHeight: "400px",
     },
   },

@@ -4,6 +4,9 @@ import {
   TEACHER_HELPREQ_FAIL,
   TEACHER_HELPREQ_REQUEST,
   TEACHER_HELPREQ_SUCCESS,
+  TEACHER_MARKHELP_FAIL,
+  TEACHER_MARKHELP_REQUEST,
+  TEACHER_MARKHELP_SUCCESS,
   TEACHER_PROGRESS_FAIL,
   TEACHER_PROGRESS_REQUEST,
   TEACHER_PROGRESS_SUCCESS,
@@ -29,6 +32,16 @@ export const teacherRequestStudent = (teacherID) => async (dispatch) => {
     dispatch({ type: TEACHER_HELPREQ_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: TEACHER_HELPREQ_FAIL, payload: error.message });
+  }
+};
+
+export const teacherMarkRequests = (students) => async (dispatch) => {
+  dispatch({ type: TEACHER_MARKHELP_REQUEST });
+  try {
+    const { data } = await Axios.post(API_URL + "api/teachers/markrequest", { students });
+    dispatch({ type: TEACHER_MARKHELP_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: TEACHER_MARKHELP_FAIL, payload: error.message });
   }
 };
 

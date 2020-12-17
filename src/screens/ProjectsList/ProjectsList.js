@@ -29,8 +29,10 @@ export default function Projects(props) {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  const role = userInfo.Role;
-
+  let role;
+  if (userInfo) {
+    role = userInfo.Role;
+  }
   closeModal();
 
   const [checkValue, setCheckValue] = useState({

@@ -32,6 +32,7 @@ export const theme = {
       light: "#D8F1FC",
       dark: primary,
       checkbox: "#3B99FC",
+      grey: "#EFEFF1",
     },
     contrastText: "#fff",
   },

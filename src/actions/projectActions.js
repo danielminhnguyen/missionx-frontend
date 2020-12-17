@@ -30,7 +30,6 @@ export const listProjects = (values) => async (dispatch) => {
     course,
     showLimit,
   } = values;
-  // console.log(values);
 
   const subscription = [].concat(free ? "'Free'" : [], premium ? "'Premium'" : []);
   const activity = [].concat(
@@ -73,7 +72,7 @@ export const projectbuilder = (id) => async (dispatch) => {
   dispatch({ type: PROJECT_BUILDER_REQUEST });
   try {
     console.log("id action", id);
-    const { data } = await Axios.get(API_URL + `/api/projects/builder?projectid=${id}`);
+    const { data } = await Axios.get(API_URL + `api/projects/builder?projectid=${id}`);
     dispatch({ type: PROJECT_BUILDER_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PROJECT_BUILDER_FAIL, payload: error.message });

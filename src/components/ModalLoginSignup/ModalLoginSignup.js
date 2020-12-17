@@ -106,10 +106,10 @@ export default function ModalLoginSignup(props) {
       >
         <Grid container spacing={4}>
           <Grid item xs={6} className="column-start">
-            <div className="login-signup-switch">
+            <div id="login-signup-switch">
               <img className={classes.image} src={student} alt="" />
               <Typography variant="h2">Students</Typography>
-              <Tabs className={classes.tabs} setactive={request}>
+              <Tabs setactive={request}>
                 <div label="Login">
                   <input
                     className={classes.input}
@@ -175,7 +175,7 @@ export default function ModalLoginSignup(props) {
           </Grid>
           <Grid className="column-start" item xs={6}>
             <img className={classes.image} src={teacher} alt="" />
-            <div className="login-signup-switch">
+            <div id="login-signup-switch">
               <Typography variant="h2">Teachers</Typography>
               <Tabs setactive={request}>
                 <div label="Login">

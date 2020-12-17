@@ -1,11 +1,13 @@
-import { Card, Checkbox, makeStyles, Typography } from "@material-ui/core";
-import { teacherRequestStudent } from "actions/teacherActions";
+import { Button, Card, Checkbox, makeStyles, Typography } from "@material-ui/core";
+import { teacherMarkRequests, teacherRequestStudent } from "actions/teacherActions";
 import Error from "components/Error";
 import Loading from "components/Loading";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { timeFormat, dateFormat } from "utils";
+import { ReactComponent as Reply } from "assets/images/reply.svg";
+import { ReactComponent as Tick } from "assets/images/tick.svg";
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -34,6 +36,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "flex-end",
   },
+  topControl: {
+    display: "flex",
+    flexDirection: "row",
+    paddingRight: theme.spacing(10),
+    paddingLeft: theme.spacing(10),
+  },
 }));
 
 export default function HelpRequest() {
@@ -43,6 +51,7 @@ export default function HelpRequest() {
   const { userInfo } = userSignin;
   const teacherHelpReq = useSelector((state) => state.teacherHelpReq);
   const { studentsInfo, loading, error } = teacherHelpReq;
+  const [checkedList, setCheckedList] = useState([]);
 
   useEffect(() => {
     if (userInfo) {
@@ -54,12 +63,39 @@ export default function HelpRequest() {
     return <Redirect to="/" />;
   }
 
+  const handleCheck = (event) => {
+    const list = [...checkedList];
+    if (event.target.checked === true) {
+      list.push(event.target.name);
+      setCheckedList(list);
+    } else {
+      list.pop(event.target.name.toString());
+      setCheckedList(list);
+    }
+    console.log(checkedList);
+  };
+
+  const handleClick = () => {
+    dispatch(teacherMarkRequests(checkedList));
+  };
+
   return (
     <>
-      <div>
+      <div className={classes.topControl}>
         <Typography align="left" variant="h3" className={classes.title}>
           HELP REQUEST
         </Typography>
+        <div className={classes.grow}></div>
+        <div className="row">
+          <Button>
+            <Reply />
+            REPLY
+          </Button>
+          <Button onClick={() => handleClick()}>
+            <Tick />
+            MARK AS DONE
+          </Button>
+        </div>
       </div>
       {loading ? (
         <Loading open={loading} />
@@ -69,7 +105,7 @@ export default function HelpRequest() {
         <>
           {studentsInfo.map((student) => (
             <div className="row">
-              <Checkbox color="default" />
+              <Checkbox name={student.UserID} color="default" onChange={handleCheck} />
               <Card className={classes.card}>
                 <img src={student.ProfilePic} alt="" />
                 <div className={classes.grow}>
