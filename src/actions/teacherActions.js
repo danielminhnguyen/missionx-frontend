@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { API_URL } from "config";
 import {
   TEACHER_HELPREQ_FAIL,
   TEACHER_HELPREQ_REQUEST,
@@ -14,7 +15,7 @@ import {
 export const teacherProfileReq = (teacherID) => async (dispatch) => {
   dispatch({ type: TEACHER_STUDENT_PROFILES_REQUEST });
   try {
-    const { data } = await Axios.post("api/teachers/studentprofile", { teacherID });
+    const { data } = await Axios.post(API_URL + "api/teachers/studentprofile", { teacherID });
     dispatch({ type: TEACHER_STUDENT_PROFILES_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: TEACHER_STUDENT_PROFILES_FAIL, payload: error.message });
@@ -24,7 +25,7 @@ export const teacherProfileReq = (teacherID) => async (dispatch) => {
 export const teacherRequestStudent = (teacherID) => async (dispatch) => {
   dispatch({ type: TEACHER_HELPREQ_REQUEST });
   try {
-    const { data } = await Axios.post("api/teachers/helprequest", { teacherID });
+    const { data } = await Axios.post(API_URL + "api/teachers/helprequest", { teacherID });
     dispatch({ type: TEACHER_HELPREQ_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: TEACHER_HELPREQ_FAIL, payload: error.message });
@@ -34,11 +35,18 @@ export const teacherRequestStudent = (teacherID) => async (dispatch) => {
 export const teacherRequestProgress = (teacherID) => async (dispatch) => {
   dispatch({ type: TEACHER_PROGRESS_REQUEST });
   try {
-    const { data: beginnerData } = await Axios.post("api/teachers/progressbeginner", { teacherID });
-    const { data: intermediateData } = await Axios.post("api/teachers/progressintermediate", {
+    const { data: beginnerData } = await Axios.post("API_URL +api/teachers/progressbeginner", {
       teacherID,
     });
-    const { data: advancedData } = await Axios.post("api/teachers/progressadvance", { teacherID });
+    const { data: intermediateData } = await Axios.post(
+      API_URL + "api/teachers/progressintermediate",
+      {
+        teacherID,
+      }
+    );
+    const { data: advancedData } = await Axios.post(API_URL + "api/teachers/progressadvance", {
+      teacherID,
+    });
     console.log("beginer", beginnerData);
     dispatch({
       type: TEACHER_PROGRESS_SUCCESS,

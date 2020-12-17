@@ -1,4 +1,5 @@
 import Axios from "axios";
+import { API_URL } from "config";
 import {
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
@@ -16,7 +17,7 @@ export const signin = (email, password, role) => async (dispatch) => {
     payload: { email, password, role },
   });
   try {
-    const { data } = await Axios.post("/api/users/signin", { email, password, role });
+    const { data } = await Axios.post(API_URL + "/api/users/signin", { email, password, role });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
     if (role === "teacher") {
       history.push("/dashboard");
@@ -46,7 +47,7 @@ export const register = (firstname, lastname, email, password, role) => async (d
   });
   console.log("dispatch");
   try {
-    const { data } = await Axios.post("api/users/register", {
+    const { data } = await Axios.post(API_URL + "api/users/register", {
       firstname,
       lastname,
       email,
